@@ -283,4 +283,24 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('There was an error submitting the form. Please try again.');
         }
     });
+
+    // Intersection Observer for service cards
+    const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observe all service cards
+    document.querySelectorAll('.service-card.animate').forEach(card => {
+        observer.observe(card);
+    });
 }); 
