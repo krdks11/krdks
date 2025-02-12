@@ -1,0 +1,112 @@
+<section class="contact">
+    <div class="contact-header">
+        <h1>Want to Hire Me?</h1>
+        <p class="subtitle">Let's turn your ideas into reality</p>
+    </div>
+
+    <div class="contact-wrapper">
+        <form class="contact-form" action="/submit-form" method="POST">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required placeholder="John Doe">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required placeholder="john@example.com">
+            </div>
+
+            <div class="form-group">
+                <label for="mobile">Mobile Number</label>
+                <input type="tel" id="mobile" name="mobile" required 
+                    placeholder="+91 9999999999" 
+                    pattern="[0-9+\s-]{10,}"
+                    title="Please enter a valid mobile number">
+            </div>
+
+            <div class="form-group">
+                <label for="projectType">Type of Work</label>
+                <select id="projectType" name="projectType" required>
+                    <option value="" disabled selected>Select Project Type</option>
+                    <option value="static">Static Website</option>
+                    <option value="dynamic">Dynamic Website</option>
+                    <option value="ecommerce">E-commerce Website</option>
+                    <option value="mobile">Mobile App (iOS/Android)</option>
+                    <option value="webapp">Web Application</option>
+                    <option value="maintenance">Website Maintenance</option>
+                    <option value="redesign">Website Redesign</option>
+                    <option value="consulting">Technical Consulting</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="budget">Budget Range</label>
+                <select id="budget" name="budget" required>
+                    <option value="" disabled selected>Select Budget Range</option>
+                    <option value="small">₹10,000 - ₹25,000</option>
+                    <option value="medium">₹25,000 - ₹50,000</option>
+                    <option value="large">₹50,000 - ₹1,00,000</option>
+                    <option value="enterprise">₹1,00,000+</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="timeline">Project Timeline</label>
+                <select id="timeline" name="timeline" required>
+                    <option value="" disabled selected>Select Timeline</option>
+                    <option value="urgent">Less than 1 week</option>
+                    <option value="short">1-2 weeks</option>
+                    <option value="medium">2-4 weeks</option>
+                    <option value="long">1-2 months</option>
+                    <option value="flexible">Flexible</option>
+                </select>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="message">Project Details</label>
+                <textarea id="message" name="message" rows="5" required 
+                    placeholder="Tell me about your project requirements..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                <span>Send Message</span>
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </form>
+    </div>
+</section>
+
+<div class="submission-modal" id="submissionModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <div class="success-animation">
+                <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                    <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                    <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                </svg>
+            </div>
+        </div>
+        <div class="modal-body">
+            <h2>Thank You!</h2>
+            <p class="main-message">Your message has been successfully sent.</p>
+            <div class="confirmation-details">
+                <div class="detail-item">
+                    <i class="fas fa-clock"></i>
+                    <p>I'll review your project details shortly</p>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>You'll receive a confirmation email</p>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <p>I'll contact you within 24 hours</p>
+                </div>
+            </div>
+            <button class="close-modal">
+                <span>Got it!</span>
+                <i class="fas fa-check"></i>
+            </button>
+        </div>
+    </div>
+</div> 

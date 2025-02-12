@@ -1,0 +1,218 @@
+/* Education Timeline Styles */
+.education-section {
+    padding: 4rem 0;
+    position: relative;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+/* Timeline Center Line */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(var(--gradient-1-rgb), 0.1),
+        rgba(var(--gradient-2-rgb), 0.1),
+        rgba(var(--gradient-3-rgb), 0.1),
+        transparent
+    );
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+    opacity: 0.15;
+}
+
+/* Add a subtle glow effect */
+.timeline::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(var(--gradient-1-rgb), 0.05),
+        rgba(var(--gradient-2-rgb), 0.05),
+        rgba(var(--gradient-3-rgb), 0.05),
+        transparent
+    );
+    filter: blur(4px);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Timeline Items */
+.timeline-item {
+    padding: 1rem 3rem;
+    position: relative;
+    width: 50%;
+    opacity: 0;
+    transform: translateX(-100px);
+    animation: slideIn 0.5s ease forwards;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+    transform: translateX(100px);
+}
+
+/* Timeline Dot */
+.timeline-dot {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right: -20px;
+    background: var(--card-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 
+        0 0 0 4px rgba(var(--primary-color-rgb), 0.1),
+        0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    border: 2px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+    left: -20px;
+}
+
+.timeline-dot i {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+/* Timeline Content */
+.timeline-content {
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid var(--card-bg);
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.timeline-item:nth-child(even) .timeline-content::before {
+    left: -10px;
+    border-left: none;
+    border-right: 10px solid var(--card-bg);
+}
+
+/* Timeline Date */
+.timeline-date {
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+/* Timeline Details */
+.timeline-details {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.badge {
+    background: var(--surface-color);
+    color: var(--text-primary);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+/* Hover Effects */
+.timeline-item:hover .timeline-dot {
+    transform: scale(1.2);
+    background: var(--primary-color);
+}
+
+.timeline-item:hover .timeline-dot i {
+    color: white;
+    transform: rotate(360deg);
+}
+
+.timeline-item:hover .timeline-content {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.timeline-item:hover .badge {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Animations */
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .timeline::after {
+        left: 31px;
+        opacity: 0.1;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 80px;
+        padding-right: 0;
+    }
+
+    .timeline-item:nth-child(even) {
+        left: 0;
+    }
+
+    .timeline-dot {
+        left: 6px;
+        right: auto;
+    }
+
+    .timeline-item:nth-child(even) .timeline-dot {
+        left: 6px;
+    }
+
+    .timeline-content::before {
+        left: -10px;
+        border-right: 10px solid var(--card-bg);
+        border-left: none;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content::before {
+        left: -10px;
+        border-right: 10px solid var(--card-bg);
+        border-left: none;
+    }
+} 

@@ -1,0 +1,77 @@
+/* Base styles, resets, and common utilities */
+@font-face {
+    font-family: 'Born2bSportyFS';
+    src: url('../fonts/Born2bSportyFS.woff2') format('woff2'),
+         url('../fonts/Born2bSportyFS.woff') format('woff'),
+         url('../fonts/Born2bSportyFS.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    /* Light Theme Colors */
+    --primary-color: #2563eb;
+    --secondary-color: #3b82f6;
+    --background-color: #ffffff;
+    --surface-color: #f8fafc;
+    --text-primary: #1e293b;
+    --text-secondary: #475569;
+    --nav-bg: #ffffff;
+    --card-bg: #ffffff;
+    --card-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    --border-color: #e2e8f0;
+    --gradient-1: #12c2e9;
+    --gradient-2: #c471ed;
+    --gradient-3: #f64f59;
+    --nav-bg-rgb: 255, 255, 255;
+    --card-bg-rgb: 255, 255, 255;
+    --surface-color-rgb: 255, 255, 255;
+    /* Add these RGB values for gradients */
+    --gradient-1-rgb: 18, 194, 233;  /* #12c2e9 */
+    --gradient-2-rgb: 196, 113, 237; /* #c471ed */
+    --gradient-3-rgb: 246, 79, 89;   /* #f64f59 */
+    --primary-color-rgb: 37, 99, 235; /* #2563eb */
+}
+
+[data-theme="dark"] {
+    /* Dark Theme Colors */
+    --primary-color: #60a5fa;
+    --secondary-color: #3b82f6;
+    --background-color: #0f172a;
+    --surface-color: #1e293b;
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --nav-bg: #1e293b;
+    --card-bg: #1e293b;
+    --card-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    --border-color: #334155;
+    --gradient-1: #4facfe;
+    --gradient-2: #00f2fe;
+    --gradient-3: #0061ff;
+    --nav-bg-rgb: 30, 41, 59;
+    --card-bg-rgb: 30, 41, 59;
+    --surface-color-rgb: 30, 41, 59;
+    /* Dark theme RGB values */
+    --gradient-1-rgb: 79, 172, 254;  /* #4facfe */
+    --gradient-2-rgb: 0, 242, 254;   /* #00f2fe */
+    --gradient-3-rgb: 0, 97, 255;    /* #0061ff */
+    --primary-color-rgb: 96, 165, 250; /* #60a5fa */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Born2bSportyFS', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--background-color);
+}
+
+p, span, a, button, input, textarea, label {
+    font-family: 'Born2bSportyFS', Arial, sans-serif;
+} 

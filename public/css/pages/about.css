@@ -1,0 +1,6 @@
+/* About page specific styles */
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    /* Rest of about styles... */
+} 

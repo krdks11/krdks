@@ -1,0 +1,8 @@
+/* Theme toggle styles */
+.theme-toggle {
+    position: fixed;
+    top: 1.5rem;
+    right: 2rem;
+    z-index: 1001;
+    /* Rest of theme toggle styles... */
+} 

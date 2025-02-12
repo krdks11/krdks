@@ -1,0 +1,10 @@
+mkdir portfolio-website
+cd portfolio-website
+npm init -y
+mkdir public views routes
+mkdir public/css public/js public/images public/fonts
+mkdir public/css/components
+mkdir public/css/pages
+touch app.js
+touch .env
+touch .gitignore 

@@ -1,0 +1,91 @@
+/* Navigation styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5rem 1rem 2rem;
+    background-color: var(--nav-bg);
+    box-shadow: var(--card-shadow);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    position: relative;
+}
+
+/* Add animated border effect below navbar */
+.navbar::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(
+        90deg,
+        var(--gradient-1),
+        var(--gradient-2),
+        var(--gradient-3),
+        var(--gradient-2),
+        var(--gradient-1)
+    );
+    background-size: 200% 100%;
+    animation: gradientSlide 5s linear infinite;
+}
+
+/* Add shimmer effect */
+.navbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.05),
+        transparent
+    );
+    animation: shimmer 3s infinite;
+}
+
+/* Gradient slide animation */
+@keyframes gradientSlide {
+    0% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* Update navbar shadow for better effect */
+.navbar {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    background-color: rgba(var(--nav-bg-rgb), 0.95);
+}
+
+/* Add this to your :root variables in base.css */
+:root {
+    /* ... existing variables ... */
+    --nav-bg-rgb: 255, 255, 255;
+}
+
+[data-theme="dark"] {
+    /* ... existing variables ... */
+    --nav-bg-rgb: 30, 41, 59;
+}
+
+/* Rest of navbar styles... */ 
