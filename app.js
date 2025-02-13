@@ -97,8 +97,8 @@ app.get('/project/:id', (req, res) => {
             description: 'First Web Development Project - A responsive website showcasing modern web design principles.',
             longDescription: 'A comprehensive website built with modern web technologies, featuring responsive design, interactive elements, and smooth animations.',
             technologies: ['HTML', 'CSS', 'JavaScript'],
-            screenshots: ['/images/aljmweb/screenshot1.jpg', '/images/aljmweb/screenshot2.jpg'],
-            liveLink: 'https://aljmweb.com',
+            screenshots: ['/images/aljmweb/screenshot1.png', '/images/aljmweb/screenshot2.png'],
+            liveLink: 'aljamiya.site',
             githubLink: 'https://github.com/krdks11/ALJMWEB',
             type: 'website'
         },
@@ -106,9 +106,9 @@ app.get('/project/:id', (req, res) => {
             title: 'Personal Portfolio',
             description: 'Modern portfolio website built with Express.js and EJS templating.',
             longDescription: 'A modern, responsive portfolio website built using Express.js and EJS templating. Features include dark/light mode, smooth animations, and project showcases.',
-            technologies: ['Express.js', 'EJS', 'CSS', 'JavaScript'],
-            screenshots: ['/images/portfolio/home.jpg', '/images/portfolio/projects.jpg'],
-            liveLink: 'https://your-portfolio-url.com',
+            technologies: [ 'EJS', 'CSS', 'JavaScript'],
+            screenshots: ['/images/portfolio/home.png', '/images/portfolio/projects.png', '/images/portfolio/contact.png', '/images/portfolio/eduaction.png'],
+            liveLink: 'krdks.onrender.com',
             githubLink: 'https://github.com/krdks11/portfolio',
             type: 'website',
             features: [
@@ -124,8 +124,8 @@ app.get('/project/:id', (req, res) => {
             description: 'Classic Snake and Ladder game implemented with modern web technologies.',
             longDescription: 'A modern take on the classic Snake and Ladder game, featuring interactive gameplay, animations, and multiplayer support.',
             technologies: ['HTML', 'CSS', 'JavaScript'],
-            screenshots: ['/images/snake-ladder/gameplay.jpg', '/images/snake-ladder/menu.jpg'],
-            liveLink: 'https://snake-ladder-game.com',
+            screenshots: ['/images/snake-ladder/gameplay.png'],
+            liveLink: '-',
             githubLink: 'https://github.com/krdks11/snake-ladder',
             type: 'game',
             howToPlay: 'Roll the dice by clicking, move your piece automatically, and reach 100 to win!'
@@ -135,7 +135,7 @@ app.get('/project/:id', (req, res) => {
             description: 'Cross-platform currency conversion app built with Flutter.',
             longDescription: 'A powerful cross-platform currency conversion application built with Flutter and Dart. Features real-time exchange rates, multiple currency support, and offline functionality.',
             technologies: ['Flutter', 'Dart', 'Exchange Rate API', 'Firebase'],
-            screenshots: ['/images/currency-converter/main.jpg', '/images/currency-converter/conversion.jpg'],
+            screenshots: ['/images/currency-converter/main.png', '/images/currency-converter/conversion.png'],
             appLinks: {
                 android: 'https://play.google.com/store/apps/currency-converter',
                 ios: 'https://apps.apple.com/app/currency-converter'
@@ -143,20 +143,22 @@ app.get('/project/:id', (req, res) => {
             githubLink: 'https://github.com/krdks11/currency-converter',
             type: 'app',
             features: [
-                'Real-time Exchange Rates',
-                'Multiple Currency Support',
-                'Offline Mode',
-                'Currency History Charts',
-                'Favorite Currencies',
-                'Dark/Light Theme'
+               // 'Real-time Exchange Rates',
+               // 'Multiple Currency Support',
+               // 'Offline Mode',
+               // 'Currency History Charts',
+               // 'Favorite Currencies',
+               // 'Dark/Light Theme'
+               'Currency Converter only for Us to Indian Rupees'
             ]
         },
         'weather-app': {
             title: 'Weather Application',
             description: 'Cross-platform weather app developed with Flutter.',
             longDescription: 'A comprehensive weather application built with Flutter and Dart, providing detailed weather information, forecasts, and weather alerts across multiple platforms.',
-            technologies: ['Flutter', 'Dart', 'Weather API', 'Firebase'],
-            screenshots: ['/images/weather-app/dashboard.jpg', '/images/weather-app/forecast.jpg'],
+            // technologies: ['Flutter', 'Dart', 'Weather API', 'Firebase'],
+            technologies: ['Flutter', 'Dart'],
+            screenshots: ['/images/weather-app/dashboard.jpg', ],
             appLinks: {
                 android: 'https://play.google.com/store/apps/weather-app',
                 ios: 'https://apps.apple.com/app/weather-app'
@@ -164,13 +166,14 @@ app.get('/project/:id', (req, res) => {
             githubLink: 'https://github.com/krdks11/weather-app',
             type: 'app',
             features: [
+                'only for selected cities deault',
                 'Real-time Weather Updates',
-                '7-day Forecast',
-                'Weather Alerts',
-                'Location-based Weather',
-                'Multiple Locations',
-                'Weather Maps',
-                'Dark/Light Theme'
+                '10-day Forecast',
+                //'Weather Alerts',
+                //'Location-based Weather',
+               // 'Multiple Locations',
+                //'Weather Maps',
+                //'Dark/Light Theme'
             ]
         }
     };
@@ -200,6 +203,21 @@ app.post('/submit-form', async (req, res) => {
     } catch (error) {
         console.error('Error submitting form:', error);
         res.status(500).json({ success: false, message: 'Error submitting form' });
+    }
+});
+
+// Add this near your other routes
+app.get('/health', async (req, res) => {
+    try {
+        const connection = await pool.getConnection();
+        connection.release();
+        res.status(200).json({ status: 'healthy', database: 'connected' });
+    } catch (error) {
+        res.status(500).json({ 
+            status: 'unhealthy', 
+            database: 'disconnected',
+            error: error.message 
+        });
     }
 });
 
