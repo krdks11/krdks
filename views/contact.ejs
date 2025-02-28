@@ -36,6 +36,7 @@
                     <option value="maintenance">Website Maintenance</option>
                     <option value="redesign">Website Redesign</option>
                     <option value="consulting">Technical Consulting</option>
+                    <option value="other">Other/option>
                 </select>
             </div>
 
@@ -43,6 +44,7 @@
                 <label for="budget">Budget Range</label>
                 <select id="budget" name="budget" required>
                     <option value="" disabled selected>Select Budget Range</option>
+                    <option value="low">Less than ₹ 10,000</option>
                     <option value="small">₹10,000 - ₹25,000</option>
                     <option value="medium">₹25,000 - ₹50,000</option>
                     <option value="large">₹50,000 - ₹1,00,000</option>
@@ -109,4 +111,56 @@
             </button>
         </div>
     </div>
-</div> 
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('.contact-form');
+    const modal = document.getElementById('submissionModal');
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        try {
+            const formData = {
+                name: form.name.value,
+                email: form.email.value,
+                mobile: form.mobile.value,
+                projectType: form.projectType.value,
+                budget: form.budget.value,
+                timeline: form.timeline.value,
+                message: form.message.value
+            };
+
+            console.log('Submitting form data:', formData);
+
+            const response = await fetch('/submit-form', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            const result = await response.json();
+
+            if (!response.ok) {
+                throw new Error(result.message || 'Form submission failed');
+            }
+
+            // Show success modal
+            modal.style.display = 'flex';
+            form.reset();
+
+            // Hide modal after 5 seconds
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 5000);
+
+        } catch (error) {
+            console.error('Form submission error:', error);
+            alert('There was an error submitting the form. Please try again.');
+        }
+    });
+});
+</script>

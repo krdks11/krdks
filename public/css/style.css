@@ -81,7 +81,7 @@ p, span, a, button, input, textarea, label {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 5rem 1rem 2rem;
+    padding: 1rem 4rem 1rem 2rem;
     background-color: var(--nav-bg);
     box-shadow: var(--card-shadow);
     position: fixed;
@@ -198,6 +198,70 @@ footer {
 
 .social-links a:hover {
     color: var(--primary-color);
+}
+
+.footer {
+    background: var(--bg-darker);
+    padding: 2rem;
+    text-align: center;
+    margin-top: 4rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.social-links a {
+    color: var(--text);
+    font-size: 1.5rem;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    opacity: 1;
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.footer p {
+    color: var(--text);
+    opacity: 0.7;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 1.5rem;
+        margin-top: 3rem;
+    }
+
+    .social-links {
+        gap: 1.5rem;
+    }
+
+    .social-links a {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        padding: 1rem;
+        margin-top: 2rem;
+    }
+
+    .social-links {
+        gap: 1rem;
+    }
+
+    .footer p {
+        font-size: 0.8rem;
+    }
 }
 
 /* Responsive Design */
@@ -615,33 +679,25 @@ h1, h2, h3, .nav-brand a {
 /* Theme Toggle Button */
 .theme-toggle {
     position: fixed;
-    top: 1.5rem;
-    right: 2rem;
+    top: 1rem;
+    right: 1rem;
     z-index: 1001;
-    background: var(--card-bg);
-    border: 2px solid var(--border-color);
-    padding: 0.8rem;
-    border-radius: 50%;
+    background: transparent;
+    border: none;
     cursor: pointer;
-    box-shadow: var(--card-shadow);
+    padding: 0.5rem;
+    border-radius: 50%;
     transition: all 0.3s ease;
-    width: 45px;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.theme-toggle i {
-    font-size: 1.4rem;
     color: var(--text-primary);
-    transition: all 0.3s ease;
 }
 
 .theme-toggle:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    border-color: var(--primary-color);
+    transform: rotate(45deg);
+    background: var(--surface-color);
+}
+
+.theme-toggle i {
+    font-size: 1.5rem;
 }
 
 /* About Section Styles */

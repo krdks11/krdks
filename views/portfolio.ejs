@@ -16,45 +16,46 @@
             <div class="portfolio-grid">
                 <!-- ALJMWEB Project -->
                 <div class="project-card" data-category="web">
-                    <div class="project-image">
-                        <img src="/images/aljmweb.jpg" alt="ALJMWEB Project">
-                        <div class="project-overlay">
-                            <div class="tech-stack">
-                                <span>HTML</span>
-                                <span>CSS</span>
-                                <span>JavaScript</span>
+                    <a href="/project/aljmweb" class="project-link">
+                        <div class="project-image" data-title="<%= projects.aljmweb.title %>">
+                            <img src="<%= projects.aljmweb.screenshots[0] || '/images/placeholder.png' %>" 
+                                 alt="<%= projects.aljmweb.title %>"
+                                 onerror="this.src='/images/placeholder.png'">
+                            <div class="project-overlay">
+                                <div class="tech-stack">
+                                    <% projects.aljmweb.technologies.forEach(tech => { %>
+                                        <span><%= tech %></span>
+                                    <% }); %>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>ALJMWEB</h3>
-                        <p>First Web Development Project - A responsive website showcasing modern web design principles.</p>
-                        <div class="project-links">
-                            <a href="/project/aljmweb" class="btn btn-small">View Details</a>
+                        <div class="project-info">
+                            <h3><%= projects.aljmweb.title %></h3>
+                            <p><%= projects.aljmweb.description %></p>
                         </div>
-                    </div>
+                    </a>
                 </div>
 
                 <!-- Portfolio Website -->
                 <div class="project-card" data-category="web">
-                    <div class="project-image">
-                        <img src="/images/portfolio.jpg" alt="Portfolio Website">
-                        <div class="project-overlay">
-                            <div class="tech-stack">
-                                <span>Express.js</span>
-                                <span>EJS</span>
-                                <span>CSS</span>
-                                <span>JavaScript</span>
+                    <a href="/project/portfolio" class="project-link">
+                        <div class="project-image" data-title="<%= projects.portfolio.title %>">
+                            <img src="<%= projects.portfolio.screenshots[0] || '/images/placeholder.png' %>" 
+                                 alt="<%= projects.portfolio.title %>"
+                                 onerror="this.src='/images/placeholder.png'">
+                            <div class="project-overlay">
+                                <div class="tech-stack">
+                                    <% projects.portfolio.technologies.forEach(tech => { %>
+                                        <span><%= tech %></span>
+                                    <% }); %>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Personal Portfolio</h3>
-                        <p>Modern portfolio website built with Express.js and EJS templating.</p>
-                        <div class="project-links">
-                            <a href="/project/portfolio" class="btn btn-small">View Details</a>
+                        <div class="project-info">
+                            <h3><%= projects.portfolio.title %></h3>
+                            <p><%= projects.portfolio.description %></p>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -65,23 +66,24 @@
             <div class="portfolio-grid">
                 <!-- Snake Ladder Game -->
                 <div class="project-card" data-category="games">
-                    <div class="project-image">
-                        <img src="/images/snake-ladder.jpg" alt="Snake Ladder Game">
-                        <div class="project-overlay">
-                            <div class="tech-stack">
-                                <span>HTML</span>
-                                <span>CSS</span>
-                                <span>JavaScript</span>
+                    <a href="/project/snake-ladder" class="project-link">
+                        <div class="project-image" data-title="<%= projects['snake-ladder'].title %>">
+                            <img src="<%= projects['snake-ladder'].screenshots[0] || '/images/placeholder.png' %>" 
+                                 alt="<%= projects['snake-ladder'].title %>"
+                                 onerror="this.src='/images/placeholder.png'">
+                            <div class="project-overlay">
+                                <div class="tech-stack">
+                                    <% projects['snake-ladder'].technologies.forEach(tech => { %>
+                                        <span><%= tech %></span>
+                                    <% }); %>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Snake & Ladder Game</h3>
-                        <p>Classic Snake and Ladder game implemented with modern web technologies.</p>
-                        <div class="project-links">
-                            <a href="/project/snake-ladder" class="btn btn-small">View Details</a>
+                        <div class="project-info">
+                            <h3><%= projects['snake-ladder'].title %></h3>
+                            <p><%= projects['snake-ladder'].description %></p>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -92,46 +94,46 @@
             <div class="portfolio-grid">
                 <!-- Currency Converter -->
                 <div class="project-card" data-category="tools">
-                    <div class="project-image">
-                        <img src="/images/currency-converter.jpg" alt="Currency Converter">
-                        <div class="project-overlay">
-                            <div class="tech-stack">
-                                <span>Flutter</span>
-                                <span>Dart</span>
-                                <span>Exchange Rate API</span>
-                                <span>Firebase</span>
+                    <a href="/project/currency-converter" class="project-link">
+                        <div class="project-image" data-title="<%= projects['currency-converter'].title %>">
+                            <img src="<%= projects['currency-converter'].screenshots[0] || '/images/placeholder.png' %>" 
+                                 alt="<%= projects['currency-converter'].title %>"
+                                 onerror="this.src='/images/placeholder.png'">
+                            <div class="project-overlay">
+                                <div class="tech-stack">
+                                    <% projects['currency-converter'].technologies.forEach(tech => { %>
+                                        <span><%= tech %></span>
+                                    <% }); %>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Currency Converter</h3>
-                        <p>Cross-platform currency conversion app built with Flutter, featuring real-time exchange rates.</p>
-                        <div class="project-links">
-                            <a href="/project/currency-converter" class="btn btn-small">View Details</a>
+                        <div class="project-info">
+                            <h3><%= projects['currency-converter'].title %></h3>
+                            <p><%= projects['currency-converter'].description %></p>
                         </div>
-                    </div>
+                    </a>
                 </div>
 
                 <!-- Weather App -->
                 <div class="project-card" data-category="tools">
-                    <div class="project-image">
-                        <img src="/images/weather-app.jpg" alt="Weather App">
-                        <div class="project-overlay">
-                            <div class="tech-stack">
-                                <span>Flutter</span>
-                                <span>Dart</span>
-                                <span>Weather API</span>
-                                <span>Firebase</span>
+                    <a href="/project/weather-app" class="project-link">
+                        <div class="project-image" data-title="<%= projects['weather-app'].title %>">
+                            <img src="<%= projects['weather-app'].screenshots[0] || '/images/placeholder.png' %>" 
+                                 alt="<%= projects['weather-app'].title %>"
+                                 onerror="this.src='/images/placeholder.png'">
+                            <div class="project-overlay">
+                                <div class="tech-stack">
+                                    <% projects['weather-app'].technologies.forEach(tech => { %>
+                                        <span><%= tech %></span>
+                                    <% }); %>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Weather Application</h3>
-                        <p>Cross-platform weather app developed with Flutter, providing real-time weather updates.</p>
-                        <div class="project-links">
-                            <a href="/project/weather-app" class="btn btn-small">View Details</a>
+                        <div class="project-info">
+                            <h3><%= projects['weather-app'].title %></h3>
+                            <p><%= projects['weather-app'].description %></p>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -141,25 +143,22 @@
             <h2 class="section-title">Learning & Practice Projects</h2>
             <div class="portfolio-grid">
                 <div class="project-card" data-category="web">
-                    <div class="project-image">
-                        <img src="/images/learning.jpg" alt="Learning Projects">
-                        <div class="project-overlay">
-                            <div class="tech-stack">
-                                <span>HTML</span>
-                                <span>CSS</span>
-                                <span>JavaScript</span>
+                    <a href="https://github.com/krdks11" class="project-link" target="_blank">
+                        <div class="project-image" data-title="Learning Projects">
+                            <img src="/images/learning.jpg" alt="Learning Projects">
+                            <div class="project-overlay">
+                                <div class="tech-stack">
+                                    <span>HTML</span>
+                                    <span>CSS</span>
+                                    <span>JavaScript</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Web Development Practice</h3>
-                        <p>Collection of practice projects and exercises while learning web development.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/krdks11" class="btn btn-small" target="_blank">
-                                <i class="fab fa-github"></i> View More
-                            </a>
+                        <div class="project-info">
+                            <h3>Web Development Practice</h3>
+                            <p>Collection of practice projects and exercises while learning web development.</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>

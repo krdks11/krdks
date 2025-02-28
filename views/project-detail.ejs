@@ -1,69 +1,50 @@
-<section class="project-detail">
-    <div class="container">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/pages/project-detail.css">
+</head>
+<body>
+    <div class="project-detail">
         <div class="project-header">
-            <h1><%= project.title %></h1>
-            <div class="tech-stack">
-                <% project.technologies.forEach(tech => { %>
-                    <span class="tech-badge"><%= tech %></span>
-                <% }); %>
-            </div>
+            <h1 class="project-title"><%= project.title || 'Project Details' %></h1>
+            <p class="project-description"><%= project.description || 'No description available' %></p>
         </div>
 
-        <div class="project-content">
-            <!-- Project Screenshots Carousel -->
-            <div class="screenshot-carousel">
-                <% project.screenshots.forEach(screenshot => { %>
-                    <div class="screenshot">
-                        <img src="<%= screenshot %>" alt="Project Screenshot">
-                    </div>
-                <% }); %>
-                <button class="carousel-prev"><i class="fas fa-chevron-left"></i></button>
-                <button class="carousel-next"><i class="fas fa-chevron-right"></i></button>
-            </div>
-
-            <!-- Project Description -->
-            <div class="project-description">
-                <h2>About the Project</h2>
-                <p><%= project.longDescription %></p>
-
-                <!-- Features or How to Play -->
-                <% if (project.type === 'game') { %>
-                    <div class="how-to-play">
-                        <h3>How to Play</h3>
-                        <p><%= project.howToPlay %></p>
-                    </div>
-                <% } else if (project.features) { %>
-                    <div class="features">
-                        <h3>Key Features</h3>
-                        <ul>
-                            <% project.features.forEach(feature => { %>
-                                <li><%= feature %></li>
-                            <% }); %>
-                        </ul>
-                    </div>
-                <% } %>
-
-                <!-- Project Links -->
-                <div class="project-links">
-                    <% if (project.type === 'app') { %>
-                        <div class="app-store-links">
-                            <a href="<%= project.appLinks.android %>" class="btn btn-store" target="_blank">
-                                <i class="fab fa-google-play"></i> Get it on Play Store
-                            </a>
-                            <a href="<%= project.appLinks.ios %>" class="btn btn-store" target="_blank">
-                                <i class="fab fa-app-store-ios"></i> Download on App Store
-                            </a>
-                        </div>
-                    <% } else if (project.type === 'website' || project.type === 'game' || project.type === 'tool') { %>
-                        <a href="<%= project.liveLink %>" class="btn btn-primary" target="_blank">
-                            <i class="fas fa-external-link-alt"></i> Live Demo
-                        </a>
-                    <% } %>
-                    <a href="<%= project.githubLink %>" class="btn btn-secondary" target="_blank">
-                        <i class="fab fa-github"></i> View Source
-                    </a>
+        <div class="project-screenshots">
+            <% if (project.screenshots && project.screenshots.length > 0) { %>
+                <div class="screenshot-container">
+                    <img src="<%= project.screenshots[0] %>" 
+                         alt="<%= project.title %> Screenshot"
+                         loading="lazy"
+                         onerror="this.src='/images/placeholder.png'">
                 </div>
+            <% } %>
+        </div>
+
+        <% if (project.features && Array.isArray(project.features) && project.features.length > 0) { %>
+            <div class="project-features">
+                <h2 class="features-title">Key Features</h2>
+                <ul class="features-list">
+                    <% project.features.forEach(feature => { %>
+                        <li><%= feature %></li>
+                    <% }); %>
+                </ul>
             </div>
+        <% } %>
+
+        <div class="project-links">
+            <a href="/portfolio" class="project-link">Back to Portfolio</a>
+            <% if (project.liveDemo) { %>
+                <a href="<%= project.liveDemo %>" class="project-link" target="_blank">View Live Demo</a>
+            <% } %>
+            <% if (project.sourceCode) { %>
+                <a href="<%= project.sourceCode %>" class="project-link" target="_blank">View Source Code</a>
+            <% } %>
         </div>
     </div>
-</section> 
+</body>
+</html>

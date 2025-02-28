@@ -1,91 +1,127 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Handle view button clicks
-    document.querySelectorAll('.view-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const id = btn.dataset.id;
-            if (id) {
-                window.location.href = `/admin/submissions/${id}`;
-            }
+    // Add smooth hover effects to table rows
+    const tableRows = document.querySelectorAll('tr');
+    tableRows.forEach(row => {
+        row.addEventListener('mouseenter', () => {
+            row.style.transform = 'translateX(5px)';
+            row.style.transition = 'all 0.3s ease';
+        });
+        row.addEventListener('mouseleave', () => {
+            row.style.transform = 'translateX(0)';
         });
     });
 
-    // Handle status updates in the list view
-    document.querySelectorAll('.status-update').forEach(select => {
+    // Handle status updates
+    const statusSelects = document.querySelectorAll('.status-update');
+    statusSelects.forEach(select => {
         select.addEventListener('change', async (e) => {
-            const id = e.target.dataset.id;
+            const submissionId = e.target.dataset.id;
             const newStatus = e.target.value;
-
+            
             try {
-                const response = await fetch(`/admin/submissions/${id}/status`, {
-                    method: 'POST',
+                const response = await fetch(`/admin/submissions/${submissionId}/status`, {
+                    method: 'PUT',
                     headers: {
-                        'Content-Type': 'application/json',
+                        'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({ status: newStatus })
                 });
 
-                const result = await response.json();
-                if (result.success) {
-                    showNotification('Status updated successfully!', 'success');
+                if (response.ok) {
                     // Update the status badge
-                    const statusBadge = e.target.closest('tr').querySelector('.status-badge');
-                    if (statusBadge) {
-                        statusBadge.className = `status-badge ${newStatus}`;
-                        statusBadge.textContent = newStatus;
-                    }
+                    const row = e.target.closest('tr');
+                    const statusBadge = row.querySelector('.status-badge');
+                    statusBadge.className = `status-badge ${newStatus}`;
+                    statusBadge.textContent = newStatus.replace('_', ' ');
+
+                    // Show success notification
+                    showNotification('Status updated successfully!', 'success');
                 } else {
-                    showNotification('Error updating status', 'error');
+                    throw new Error('Failed to update status');
                 }
             } catch (error) {
                 console.error('Error:', error);
-                showNotification('Error updating status', 'error');
+                showNotification('Failed to update status', 'error');
             }
         });
     });
 
-    // Handle status updates in the detail view
-    const statusUpdate = document.getElementById('statusUpdate');
-    if (statusUpdate) {
-        statusUpdate.addEventListener('change', async () => {
-            const id = statusUpdate.dataset.id;
-            const newStatus = statusUpdate.value;
-
-            try {
-                const response = await fetch(`/admin/submissions/${id}/status`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ status: newStatus })
-                });
-
-                const result = await response.json();
-                if (result.success) {
-                    showNotification('Status updated successfully!', 'success');
-                } else {
-                    showNotification('Error updating status', 'error');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                showNotification('Error updating status', 'error');
-            }
+    // Handle view button clicks
+    const viewButtons = document.querySelectorAll('.view-btn');
+    viewButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const submissionId = button.dataset.id;
+            window.location.href = `/admin/submissions/${submissionId}`;
         });
-    }
-});
+    });
 
-function showNotification(message, type) {
-    const notification = document.createElement('div');
-    notification.className = `notification ${type}`;
-    notification.textContent = message;
-    document.body.appendChild(notification);
+    // Add notification system
+    function showNotification(message, type = 'success') {
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.innerHTML = `
+            <div class="notification-content">
+                <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+                <span>${message}</span>
+            </div>
+        `;
 
-    setTimeout(() => {
-        notification.classList.add('show');
+        document.body.appendChild(notification);
+
+        // Animate in
         setTimeout(() => {
-            notification.classList.remove('show');
+            notification.style.transform = 'translateX(0)';
+            notification.style.opacity = '1';
+        }, 100);
+
+        // Remove after delay
+        setTimeout(() => {
+            notification.style.transform = 'translateX(100%)';
+            notification.style.opacity = '0';
             setTimeout(() => {
                 notification.remove();
             }, 300);
-        }, 2000);
-    }, 100);
-} 
+        }, 3000);
+    }
+
+    // Add table sorting
+    const tableHeaders = document.querySelectorAll('th');
+    tableHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+            const table = header.closest('table');
+            const tbody = table.querySelector('tbody');
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+            const index = Array.from(header.parentElement.children).indexOf(header);
+            const isAscending = header.classList.contains('asc');
+
+            // Sort rows
+            rows.sort((a, b) => {
+                const aValue = a.children[index].textContent;
+                const bValue = b.children[index].textContent;
+                return isAscending 
+                    ? bValue.localeCompare(aValue) 
+                    : aValue.localeCompare(bValue);
+            });
+
+            // Update sort direction
+            tableHeaders.forEach(h => h.classList.remove('asc', 'desc'));
+            header.classList.toggle('asc', !isAscending);
+            header.classList.toggle('desc', isAscending);
+
+            // Reorder rows with animation
+            rows.forEach((row, i) => {
+                row.style.transition = 'none';
+                row.style.transform = 'translateY(20px)';
+                row.style.opacity = '0';
+                setTimeout(() => {
+                    tbody.appendChild(row);
+                    requestAnimationFrame(() => {
+                        row.style.transition = 'all 0.3s ease';
+                        row.style.transform = 'translateY(0)';
+                        row.style.opacity = '1';
+                    });
+                }, i * 50);
+            });
+        });
+    });
+});

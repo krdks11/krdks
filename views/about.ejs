@@ -1,140 +1,248 @@
-<section class="about">
-    <div class="container">
-        <h1>About Me</h1>
-        <div class="about-content">
-            <div class="about-image">
-                <div class="profile-carousel">
-                    <div class="profile-slide active">
-                        <div class="radial-effect"></div>
-                        <img src="/images/portfolio/profile1.jpg" alt="Profile Picture 1">
-                    </div>
-                    <div class="profile-slide">
-                        <div class="radial-effect"></div>
-                        <img src="/images/portfolio/profile2.jpg" alt="Profile Picture 2">
-                    </div>
-                    <div class="profile-slide">
-                        <div class="radial-effect"></div>
-                        <img src="/images/portfolio/profile3.jpg" alt="Profile Picture 3">
-                    </div>
-                    <div class="profile-slide">
-                        <div class="radial-effect"></div>
-                        <img src="/images/portfolio/profile4.jpg" alt="Profile Picture 4">
-                    </div>
-                    <div class="profile-indicators">
-                        <span class="indicator active"></span>
-                        <span class="indicator"></span>
-                        <span class="indicator"></span>
-                        <span class="indicator"></span>
-                    </div>
+<main class="about-container">
+    <section class="hero-section">
+        <div class="profile-content">
+            <div class="profile-image-container">
+                <div class="profile-images">
+                    <img src="/images/portfolio/profile1.jpg" alt="Profile Picture 1" class="active">
+                    <img src="/images/portfolio/profile2.jpg" alt="Profile Picture 2">
+                    <img src="/images/portfolio/profile3.jpg" alt="Profile Picture 3">
+                    <img src="/images/portfolio/profile4.jpg" alt="Profile Picture 4">
+                </div>
+                <div class="profile-nav">
+                    <button class="nav-btn prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="nav-btn next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="profile-dots">
+                    <span class="dot active" data-index="0"></span>
+                    <span class="dot" data-index="1"></span>
+                    <span class="dot" data-index="2"></span>
+                    <span class="dot" data-index="3"></span>
                 </div>
             </div>
-            <div class="about-text">
-                <h2>Hi, I'm Deepak Sharma</h2>
-                <p>A passionate Full Stack Developer based in Gopalganj, Bihar. I love creating beautiful and functional web applications that solve real-world problems.</p>
-                <div class="skills">
-                    <h3>My Tech Stack</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">
-                            <i class="fas fa-code"></i>
-                            HTML
-                        </span>
-                        <span class="skill-tag">
-                            <i class="fab fa-css3-alt"></i>
-                            CSS
-                        </span>
-                        <span class="skill-tag">
-                            <i class="fab fa-js"></i>
-                            JavaScript
-                        </span>
-                        <span class="skill-tag">
-                            <i class="fab fa-node-js"></i>
-                            Node.js
-                        </span>
-                        <span class="skill-tag">
-                            <i class="fab fa-node-js"></i>
-                            Express
-                        </span>
-                        <span class="skill-tag">
-                            <i class="fas fa-database"></i>
-                            MySQL
-                        </span>
-                        <span class="skill-tag">
-                            <i class="fab fa-git-alt"></i>
-                            Git
-                        </span>
-                        <span class="skill-tag">
-                            <i class="fab fa-react"></i>
-                            React
-                        </span>
+            <div class="profile-text">
+                <div class="text-content">
+                    <h1 class="animated-text">Hi, I'm<br><span class="highlight">Deepak<br>Sharma</span></h1>
+                    <p class="bio-text">A passionate Full Stack Developer based in Gopalganj, Bihar. I love creating beautiful and functional web applications that solve real-world problems.</p>
+                    <div class="cta-buttons">
+                        <a href="/portfolio" class="cta-btn primary">View My Work</a>
+                        <a href="/contact" class="cta-btn secondary">Get in Touch</a>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Education Timeline Section -->
-        <div class="education-section">
-            <h2 class="section-title">Education Journey</h2>
-            <div class="timeline">
-                <!-- Graduation -->
-                <div class="timeline-item">
-                    <div class="timeline-dot">
-                        <i class="fas fa-graduation-cap"></i>
+    <section class="skills-section">
+        <h2 class="section-title">My Tech Stack</h2>
+        <div class="skills-grid">
+            <div class="skill-category" data-aos="fade-up">
+                <div class="skill-header">
+                    <i class="fas fa-code"></i>
+                    <h3>Frontend Development</h3>
+                </div>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <i class="fab fa-html5"></i>
+                        <span>HTML5</span>
                     </div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2022 - 2025</div>
-                        <h3>Bachelor of Computer Applications (BCA)</h3>
-                        <p>MMHAU University, Patna</p>
-                        <div class="timeline-details">
-                            <span class="badge">OOP in c++</span>
-                            <span class="badge">c</span>
-                            <span class="badge">Data Structure</span>
-                            <span class="badge">Operating System</span>
-                            <span class="badge">Computer Network</span>
-                            <span class="badge">RDBMS</span>
-                            <span class="badge">Java</span>
-                            <span class="badge">SAD</span>
-                        </div>
+                    <div class="skill-item">
+                        <i class="fab fa-css3-alt"></i>
+                        <span>CSS3</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-js"></i>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-bootstrap"></i>
+                        <span>Bootstrap</span>
                     </div>
                 </div>
+            </div>
 
-                <!-- 10+2 -->
-                <div class="timeline-item">
-                    <div class="timeline-dot">
-                        <i class="fas fa-school"></i>
+            <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+                <div class="skill-header">
+                    <i class="fas fa-server"></i>
+                    <h3>Backend Development</h3>
+                </div>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <i class="fab fa-node-js"></i>
+                        <span>Node.js</span>
                     </div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2020 - 2022</div>
-                        <h3>Intermediate (10+2)</h3>
-                        <p>MDAS, Dalea</p>
-                        <h3>Sukrishna Commerce Patna</h3>
-                        <div class="timeline-details">
-                            <span class="badge">Accountancy</span>
-                            <span class="badge">Business Studies</span>
-                            <span class="badge">Econmics</span>
-                        </div>
+                    <div class="skill-item">
+                        <i class="fas fa-database"></i>
+                        <span>MongoDB</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-database"></i>
+                        <span>MySQL</span>
                     </div>
                 </div>
+            </div>
 
-                <!-- Matriculation -->
-                <div class="timeline-item">
-                    <div class="timeline-dot">
-                        <i class="fas fa-book-reader"></i>
+            <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+                <div class="skill-header">
+                    <i class="fas fa-palette"></i>
+                    <h3>Design Tools</h3>
+                </div>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <i class="fas fa-camera-retro"></i>
+                        <span>Photoshop</span>
                     </div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2010 - 2020</div>
-                        <h3>Pre to Matriculation (Class 1-10)</h3>
-                        <p>Bihar Vikas Vidyalaya, Gopalganj</p>
-                        <div class="timeline-details">
-                            <span class="badge">Science</span>
-                            <span class="badge">Mathematics</span>
-                            <span class="badge">English</span>
-                            <span class="badge">Hindi</span>
-                            <span class="badge">Social Science</span>
-                            <span class="badge">Computer</span>
-                        </div>
+                    <div class="skill-item">
+                        <i class="fas fa-bezier-curve"></i>
+                        <span>Illustrator</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-vector-square"></i>
+                        <span>Adobe XD</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-figma"></i>
+                        <span>Figma</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-pencil-ruler"></i>
+                        <span>Sketch</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-layer-group"></i>
+                        <span>Adobe InDesign</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-paint-brush"></i>
+                        <span>Canva</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
+                <div class="skill-header">
+                    <i class="fas fa-tools"></i>
+                    <h3>Development Tools</h3>
+                </div>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <i class="fab fa-git-alt"></i>
+                        <span>Git</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-terminal"></i>
+                        <span>Command Line</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-code-branch"></i>
+                        <span>VS Code</span>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section> 
+    </section>
+
+    <section class="education-section">
+        <h2 class="section-title">Education Journey</h2>
+        <div class="timeline">
+            <div class="timeline-item" data-aos="fade-right">
+                <div class="timeline-dot">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="timeline-content" data-aos="fade-up">
+                    <h3>Bachelor of Computer Applications (BCA)</h3>
+                    <p>MMHAPU, Patna</p>
+                    <p class="year">2022 - 2025</p>
+                    <div class="course-tags">
+                        <span class="course-tag">OOP</span>
+                        <span class="course-tag">Data Structure</span>
+                        <span class="course-tag">Operating System</span>
+                        <span class="course-tag">Computer Network</span>
+                        <span class="course-tag">RDBMS</span>
+                        <span class="course-tag">Java</span>
+                        <span class="course-tag">SAD</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+                <div class="timeline-dot">
+                    <i class="fas fa-school"></i>
+                </div>
+                <div class="timeline-content" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Intermediate (10+2)</h3>
+                    <p>MDASV,Dalea</p>
+                    <p>Sukhrishna Commerce Patna</p>
+                    <p class="year">2020 - 2022</p>
+                    <div class="course-tags">
+                        <span class="course-tag">Accountancy</span>
+                        <span class="course-tag">Business Studies</span>
+                        <span class="course-tag">Economics</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
+                <div class="timeline-dot">
+                    <i class="fas fa-book"></i>
+                </div>
+                <div class="timeline-content" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Pre to Matriculation (Class 1-10)</h3>
+                    <p>Bihar Vikas Vidyalaya, Gopalganj</p>
+                    <p class="year">2010 - 2020</p>
+                    <div class="course-tags">
+                        <span class="course-tag">Science</span>
+                        <span class="course-tag">Mathematics</span>
+                        <span class="course-tag">English</span>
+                        <span class="course-tag">Hindi</span>
+                        <span class="course-tag">Social Science</span>
+                        <span class="course-tag">Computer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Profile Image Carousel
+    const images = document.querySelectorAll('.profile-images img');
+    const dots = document.querySelectorAll('.profile-dots .dot');
+    const prevBtn = document.querySelector('.nav-btn.prev');
+    const nextBtn = document.querySelector('.nav-btn.next');
+    let currentIndex = 0;
+
+    function showImage(index) {
+        images.forEach(img => img.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        images[index].classList.add('active');
+        dots[index].classList.add('active');
+    }
+
+    function nextImage() {
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage(currentIndex);
+    }
+
+    function prevImage() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        showImage(currentIndex);
+    }
+
+    nextBtn.addEventListener('click', nextImage);
+    prevBtn.addEventListener('click', prevImage);
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            currentIndex = index;
+            showImage(currentIndex);
+        });
+    });
+
+    // Auto advance slides every 5 seconds
+    setInterval(nextImage, 5000);
+});
+</script>

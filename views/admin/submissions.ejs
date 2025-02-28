@@ -28,23 +28,40 @@
                     <% submissions.forEach(submission => { %>
                         <tr>
                             <td><%= new Date(submission.submission_date).toLocaleDateString() %></td>
-                            <td><%= submission.full_name %></td>
+                            <td><%= submission.name %></td>
                             <td><%= submission.email %></td>
-                            <td><%= submission.project_type %></td>
-                            <td><%= submission.budget_range %></td>
-                            <td><%= submission.timeline %></td>
+                            <td><%= submission.projectType === 'static' ? 'Static Website' :
+                                   submission.projectType === 'dynamic' ? 'Dynamic Website' :
+                                   submission.projectType === 'ecommerce' ? 'E-commerce Website' :
+                                   submission.projectType === 'mobile' ? 'Mobile App (iOS/Android)' :
+                                   submission.projectType === 'webapp' ? 'Web Application' :
+                                   submission.projectType === 'maintenance' ? 'Website Maintenance' :
+                                   submission.projectType === 'redesign' ? 'Website Redesign' :
+                                   submission.projectType === 'consulting' ? 'Technical Consulting' :
+                                   submission.projectType %></td>
+                            <td><%= submission.budget === 'small' ? '₹10,000 - ₹25,000' :
+                                   submission.budget === 'medium' ? '₹25,000 - ₹50,000' :
+                                   submission.budget === 'large' ? '₹50,000 - ₹1,00,000' :
+                                   submission.budget === 'enterprise' ? '₹1,00,000+' :
+                                   submission.budget %></td>
+                            <td><%= submission.timeline === 'urgent' ? 'Less than 1 week' :
+                                   submission.timeline === 'short' ? '1-2 weeks' :
+                                   submission.timeline === 'medium' ? '2-4 weeks' :
+                                   submission.timeline === 'long' ? '1-2 months' :
+                                   submission.timeline === 'flexible' ? 'Flexible' :
+                                   submission.timeline %></td>
                             <td>
-                                <span class="status-badge <%= submission.status %>">
-                                    <%= submission.status %>
+                                <span class="status-badge <%= submission.status || 'new' %>">
+                                    <%= submission.status || 'new' %>
                                 </span>
                             </td>
                             <td class="action-buttons">
-                                <button class="view-btn" data-id="<%= submission.id %>">
+                                <button class="view-btn" data-id="<%= submission._id %>">
                                     <i class="fas fa-eye"></i> View
                                 </button>
-                                <select class="status-update" data-id="<%= submission.id %>">
+                                <select class="status-update" data-id="<%= submission._id %>">
                                     <option value="" disabled>Update Status</option>
-                                    <option value="new" <%= submission.status === 'new' ? 'selected' : '' %>>New</option>
+                                    <option value="new" <%= (submission.status || 'new') === 'new' ? 'selected' : '' %>>New</option>
                                     <option value="in_progress" <%= submission.status === 'in_progress' ? 'selected' : '' %>>In Progress</option>
                                     <option value="completed" <%= submission.status === 'completed' ? 'selected' : '' %>>Completed</option>
                                     <option value="archived" <%= submission.status === 'archived' ? 'selected' : '' %>>Archived</option>
@@ -60,4 +77,4 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="/js/admin.js"></script>
 </body>
-</html> 
+</html>

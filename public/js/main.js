@@ -303,4 +303,27 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.service-card.animate').forEach(card => {
         observer.observe(card);
     });
+
+    // Enhanced image error handling
+    document.querySelectorAll('img').forEach(img => {
+        const handleImageError = () => {
+            console.log(`Failed to load image: ${img.src}`);
+            console.log('Current image path:', img.src);
+            console.log('Base URL:', window.location.origin);
+            img.src = '/images/placeholder.png';
+            img.parentElement.classList.remove('loading');
+        };
+
+        img.addEventListener('error', handleImageError);
+        
+        // Add loading state
+        if (img.parentElement.classList.contains('project-image')) {
+            img.parentElement.classList.add('loading');
+            
+            img.onload = function() {
+                console.log(`Successfully loaded image: ${img.src}`);
+                this.parentElement.classList.remove('loading');
+            };
+        }
+    });
 }); 
